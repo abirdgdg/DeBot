@@ -82,7 +82,7 @@ async def send_start_message(client, message):
     print(f"User {chat_id} added to total_users.")
 
     # Simulate typing animation with short delays and delete the messages afterward
-    anim1 = await message.reply_text("<b>Starting Design Vault...</b>", parse_mode=ParseMode.HTML)
+    anim1 = await message.reply_text("<b>Starting Graphics Tool...</b>", parse_mode=ParseMode.HTML)
     await asyncio.sleep(0.3)
     await anim1.delete()
 
@@ -91,16 +91,17 @@ async def send_start_message(client, message):
     await anim2.delete()
 
     start_message = (
-        f"Hi — ⟨{message.from_user.first_name}⟩ Welcome to this bot\n"
-        "________________________________\n\n"
-        "<b><a href='https://t.me/DesVaultBot'>Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐</a></b>: "
-        "Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐 is the most complete Bot to help you with Graphics Resources, "
-        "Effortless Downloads 🔥\n\n"
+        f"Hi <b>{message.from_user.full_name}</b>\n"
+        "<b>________________________________</b>\n"
+        "<b><a href='https://t.me/GraphicsToolBot'>Graphics Tool</a></b> "
+        "is the most complete Bot to help you with Graphics Resources, "
+        "Effortless Downloads - Say goodbye to browsing hassles! Get your desired assets with a simple click. 💾\n"
+        "<b>________________________________</b>\n"
         "Don't forget to <a href='https://t.me/abir_x_official'>join</a> for updates!"
     )
 
     keyboard = InlineKeyboardMarkup(
-        [[InlineKeyboardButton("Explore Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐", callback_data="main_menu")]]
+        [[InlineKeyboardButton("⚙️ Menu", callback_data="main_menu")]]
     )
 
     await message.reply_text(
@@ -110,13 +111,12 @@ async def send_start_message(client, message):
         disable_web_page_preview=True,
     )
 
-
 @app.on_callback_query()
 async def handle_callback_query(client, query: CallbackQuery):
     data = query.data  # Extract the callback data
     responses = {
         "envato": (
-            "Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐 🌟Quick Guide to Access Envato\n"
+            "Graphics Tool 🌟Quick Guide to Access Envato\n"
             "━━━━━━━━━━━━━━━━\n"
             "1: 🔗 Downloading Envato Elements File\n"
             "   - Type /env1 followed by an Envato URL.\n"
@@ -131,7 +131,7 @@ async def handle_callback_query(client, query: CallbackQuery):
             {'parse_mode': ParseMode.HTML, 'disable_web_page_preview': True}
         ),
         "freepik": (
-            "Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐 🌟 Quick Guide to Access Freepik\n"
+            "Graphics Tool 🌟 Quick Guide to Access Freepik\n"
             "━━━━━━━━━━━━━━━━\n"
             "1: 🔗 Downloading Freepik File\n"
             "   - Type /pik1 followed by a Freepik URL.\n"
@@ -145,7 +145,7 @@ async def handle_callback_query(client, query: CallbackQuery):
             {'parse_mode': ParseMode.HTML, 'disable_web_page_preview': True}
         ),
         "unsplash": (
-            "Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐 🌟 Quick Guide to Access Unsplash+\n"
+            "Graphics Tool 🌟 Quick Guide to Access Unsplash+\n"
             "━━━━━━━━━━━━━━━━\n"
             "1: 🔗 Downloading Unsplash File\n"
             "   - Type /uns followed by an Unsplash URL.\n"
@@ -159,7 +159,7 @@ async def handle_callback_query(client, query: CallbackQuery):
             {'parse_mode': ParseMode.HTML, 'disable_web_page_preview': True}
         ),
         "motion": (
-            "Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐 🌟 Quick Guide to Access Motionarray\n"
+            "Graphics Tool 🌟 Quick Guide to Access Motionarray\n"
             "━━━━━━━━━━━━━━━━\n"
             "1: 🔗 Downloading Motionarray File\n"
             "   - Type /mot followed by a Motionarray URL.\n"
@@ -173,7 +173,7 @@ async def handle_callback_query(client, query: CallbackQuery):
             {'parse_mode': ParseMode.HTML, 'disable_web_page_preview': True}
         ),
         "paidaccess": (
-            "Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐 Paid Access\n"
+            "Graphics Tool Paid Access\n"
             "━━━━━━━━━━━━━━━━\n"
             "1: 🔗 Buy Subscription\n"
             "   - Contact <a href='https://t.me/abirxdhackz'>Abir Arafat Chawdhury</a>\n\n"
@@ -190,7 +190,7 @@ async def handle_callback_query(client, query: CallbackQuery):
             {'parse_mode': ParseMode.HTML, 'disable_web_page_preview': True}
         ),
         "freeaccess": (
-            "🌟 Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐 Free Access\n"
+            "Graphics Tool Free Access\n"
             "━━━━━━━━━━━━━━━━\n"
             "1: 🔗 To Get Free Access\n"
             "   - Join this Group: Graphics - Hub🌟 (<a href='https://t.me/abir_x_official_graphics_hub'>Graphics - Hub</a>)\n\n"
@@ -206,7 +206,7 @@ async def handle_callback_query(client, query: CallbackQuery):
             {'parse_mode': ParseMode.HTML, 'disable_web_page_preview': True}
         ),
         "reseller": (
-            "Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐 🌟 Instructions for Resellers to Sell Bot Subscriptions\n"
+            "Graphics Tool 🌟 Instructions for Resellers to Sell Bot Subscriptions\n"
             "━━━━━━━━━━━━━━━━\n"
             "Step 1: Contact the Bot Owner\n"
             "   - Telegram Username: <a href='https://t.me/abirxdhackz'>Abir Arafat Chawdhury</a>\n\n"
@@ -241,7 +241,7 @@ async def handle_callback_query(client, query: CallbackQuery):
         )
     elif data == "main_menu":
         await query.message.edit_text(
-            "Here are the Dᴇꜱɪɢɴ Vᴀᴜʟᴛ 🔐 Options:",
+            "Here are the Graphics Tool Options:",
             reply_markup=create_main_menu(),
         )
     elif data == "close":
